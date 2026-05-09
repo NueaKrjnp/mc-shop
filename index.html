@@ -25,8 +25,9 @@
         th { background: #0f172a; color: #2ecc71; }
         
         .base-price { color: #f1c40f; font-weight: bold; font-size: 1.1rem; }
-        .trend-up { color: #ff4757; font-size: 0.8rem; margin-left: 5px; font-weight: normal; }
-        .trend-down { color: #2ed573; font-size: 0.8rem; margin-left: 5px; font-weight: normal; }
+        /* เปลี่ยนสีตามคำขอ: ขึ้น = เขียว, ลง = แดง */
+        .trend-up { color: #2ed573; font-size: 0.8rem; margin-left: 5px; font-weight: normal; } 
+        .trend-down { color: #ff4757; font-size: 0.8rem; margin-left: 5px; font-weight: normal; }
         .trade-item { color: #3498db; font-weight: bold; }
     </style>
 </head>
@@ -42,7 +43,7 @@
 
     <div class="container">
         
-        <!-- หน้า 1: รายการราคามรกต (ข้อมูลเดิมเป๊ะ + ระบบราคาขึ้นลง) -->
+        <!-- หน้า 1: รายการราคามรกต (ข้อมูลครบ + ระบบราคาขึ้นลง) -->
         <div id="price-page" class="page active">
             <div class="market-status">
                 <span id="market-time">📊 กำลังตรวจสอบราคาตลาดปัจจุบัน...</span>
@@ -51,36 +52,76 @@
             <div class="category-box">
                 <div class="category-header">🛡️ ชุดเกราะ (Armor Sets)</div>
                 <table>
-                    <tr><th>ชุดเกราะ</th><th style="text-align:right;">ราคาปัจจุบัน (Emerald)</th></tr>
-                    <tr><td>Leather Armor</td><td style="text-align:right;"><span class="base-price" data-base="5">5</span></td></tr>
-                    <tr><td>Iron Armor</td><td style="text-align:right;"><span class="base-price" data-base="20">20</span></td></tr>
-                    <tr><td>Diamond Armor</td><td style="text-align:right;"><span class="base-price" data-base="128">128</span></td></tr>
-                    <tr><td>Netherite Armor</td><td style="text-align:right;"><span class="base-price" data-base="512">512</span></td></tr>
+                    <tr><th>ชุดเกราะ (ครบเซ็ต)</th><th style="text-align:right;">ราคาปัจจุบัน (Emerald)</th></tr>
+                    <tr><td>Leather Armor (เกราะหนัง)</td><td style="text-align:right;"><span class="base-price" data-base="5">5</span></td></tr>
+                    <tr><td>Chainmail Armor (เกราะโซ่)</td><td style="text-align:right;"><span class="base-price" data-base="12">12</span></td></tr>
+                    <tr><td>Iron Armor (เกราะเหล็ก)</td><td style="text-align:right;"><span class="base-price" data-base="20">20</span></td></tr>
+                    <tr><td>Gold Armor (เกราะทอง)</td><td style="text-align:right;"><span class="base-price" data-base="15">15</span></td></tr>
+                    <tr><td>Diamond Armor (เกราะเพชร)</td><td style="text-align:right;"><span class="base-price" data-base="128">128</span></td></tr>
+                    <tr><td>Netherite Armor (เกราะเนเธอไรต์)</td><td style="text-align:right;"><span class="base-price" data-base="512">512</span></td></tr>
                 </table>
             </div>
 
+            <!-- ดึงเอนชานต์กลับมาให้ครบทุกเล่ม -->
             <div class="category-box">
                 <div class="category-header">✨ สมุดเอนชานต์ (Enchanted Books)</div>
                 <table>
                     <tr><th>ชื่อเอนชานต์</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>
-                    <tr><td>Sharpness / Efficiency</td>
+                    <tr><td>Sharpness (ความคม)</td>
                         <td><span class="base-price" data-base="5">5</span></td>
                         <td><span class="base-price" data-base="12">12</span></td>
                         <td><span class="base-price" data-base="24">24</span></td>
                         <td><span class="base-price" data-base="36">36</span></td>
                         <td><span class="base-price" data-base="64">64</span></td>
                     </tr>
-                    <tr><td>Protection</td>
+                    <tr><td>Efficiency (ขุดไว)</td>
+                        <td><span class="base-price" data-base="5">5</span></td>
+                        <td><span class="base-price" data-base="12">12</span></td>
+                        <td><span class="base-price" data-base="24">24</span></td>
+                        <td><span class="base-price" data-base="36">36</span></td>
+                        <td><span class="base-price" data-base="64">64</span></td>
+                    </tr>
+                    <tr><td>Protection (ป้องกัน)</td>
                         <td><span class="base-price" data-base="8">8</span></td>
                         <td><span class="base-price" data-base="16">16</span></td>
                         <td><span class="base-price" data-base="32">32</span></td>
                         <td><span class="base-price" data-base="48">48</span></td>
                         <td>-</td>
                     </tr>
-                    <tr><td>Mending / Silk Touch</td><td colspan="5" style="text-align:center;"><span class="base-price" data-base="64">64</span> / <span class="base-price" data-base="32">32</span></td></tr>
+                    <tr><td>Unbreaking (ความทนทาน)</td>
+                        <td><span class="base-price" data-base="10">10</span></td>
+                        <td><span class="base-price" data-base="20">20</span></td>
+                        <td><span class="base-price" data-base="32">32</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr><td>Fortune / Looting</td>
+                        <td><span class="base-price" data-base="15">15</span></td>
+                        <td><span class="base-price" data-base="30">30</span></td>
+                        <td><span class="base-price" data-base="48">48</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr><td>Fire Aspect / Knockback</td>
+                        <td><span class="base-price" data-base="20">20</span></td>
+                        <td><span class="base-price" data-base="40">40</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr><td>Power (ความแรงธนู)</td>
+                        <td><span class="base-price" data-base="5">5</span></td>
+                        <td><span class="base-price" data-base="12">12</span></td>
+                        <td><span class="base-price" data-base="24">24</span></td>
+                        <td><span class="base-price" data-base="36">36</span></td>
+                        <td><span class="base-price" data-base="64">64</span></td>
+                    </tr>
+                    <tr><td>Mending (ซ่อมแซม)</td><td colspan="5" style="text-align:center;"><span class="base-price" data-base="64">64</span></td></tr>
+                    <tr><td>Silk Touch (สัมผัสนุ่ม)</td><td colspan="5" style="text-align:center;"><span class="base-price" data-base="32">32</span></td></tr>
                 </table>
             </div>
 
+            <!-- ดึงอาวุธกลับมาให้ครบทุกชิ้น -->
             <div class="category-box">
                 <div class="category-header">⚔️ อาวุธและเครื่องมือ (Tools & Weapons)</div>
                 <table>
@@ -88,6 +129,10 @@
                     <tr><td>Sword (ดาบ)</td><td><span class="base-price" data-base="32">32</span></td><td style="text-align:right;"><span class="base-price" data-base="150">150</span></td></tr>
                     <tr><td>Pickaxe (พิกแอก)</td><td><span class="base-price" data-base="40">40</span></td><td style="text-align:right;"><span class="base-price" data-base="160">160</span></td></tr>
                     <tr><td>Axe (ขวาน)</td><td><span class="base-price" data-base="24">24</span></td><td style="text-align:right;"><span class="base-price" data-base="140">140</span></td></tr>
+                    <tr><td>Shovel (พลั่ว)</td><td><span class="base-price" data-base="15">15</span></td><td style="text-align:right;"><span class="base-price" data-base="120">120</span></td></tr>
+                    <tr><td>Hoe (จอบ)</td><td><span class="base-price" data-base="10">10</span></td><td style="text-align:right;"><span class="base-price" data-base="100">100</span></td></tr>
+                    <tr><td>Bow / Crossbow</td><td><span class="base-price" data-base="10">10</span></td><td style="text-align:right;">-</td></tr>
+                    <tr><td>Trident (สามง่าม)</td><td><span class="base-price" data-base="192">192</span></td><td style="text-align:right;">-</td></tr>
                     <tr><td>Netherite Upgrade</td><td>-</td><td style="text-align:right;"><span class="base-price" data-base="128">128</span></td></tr>
                 </table>
             </div>
@@ -95,8 +140,11 @@
             <div class="category-box">
                 <div class="category-header">📦 บล็อกทั่วไป</div>
                 <table>
-                    <tr><td>Stone / Dirt (128 ชิ้น)</td><td style="text-align:right;"><span class="base-price" data-base="1">1</span></td></tr>
+                    <tr><td>Stone / Dirt / Sand (128 ชิ้น)</td><td style="text-align:right;"><span class="base-price" data-base="1">1</span></td></tr>
+                    <tr><td>Wood Log (32 ชิ้น)</td><td style="text-align:right;"><span class="base-price" data-base="1">1</span></td></tr>
+                    <tr><td>Iron Ingot (2 ชิ้น)</td><td style="text-align:right;"><span class="base-price" data-base="1">1</span></td></tr>
                     <tr><td>Diamond (1 เม็ด)</td><td style="text-align:right;"><span class="base-price" data-base="15">15</span></td></tr>
+                    <tr><td>Netherite Ingot (1 แท่ง)</td><td style="text-align:right;"><span class="base-price" data-base="256">256</span></td></tr>
                 </table>
             </div>
         </div>
@@ -108,10 +156,12 @@
                 <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกของที่เท่าเทียม</div>
                 <table>
                     <tr><th>ของที่คุณนำมา (Give)</th><th>➡️</th><th>ของที่ได้รับ (Get)</th></tr>
-                    <tr><td class="trade-item">Diamond 1 เม็ด</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
+                    <tr><td class="trade-item">Diamond 1 เม็ด (ค่า 15 Em)</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
                     <tr><td class="trade-item">Gold Ingot 8 แท่ง</td><td>➡️</td><td>Diamond 1 เม็ด</td></tr>
-                    <tr><td class="trade-item">Emerald 64 เม็ด</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
+                    <tr><td class="trade-item">Netherite Ingot 1 แท่ง</td><td>➡️</td><td>Diamond 18 เม็ด</td></tr>
+                    <tr><td class="trade-item">Emerald 64 เม็ด (1 Stack)</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
                     <tr><td class="trade-item">Totem of Undying 1 อัน</td><td>➡️</td><td>Emerald 128 เม็ด</td></tr>
+                    <tr><td class="trade-item">Enchanted Golden Apple 1 ลูก</td><td>➡️</td><td>Netherite Ingot 1 แท่ง</td></tr>
                 </table>
             </div>
         </div>
@@ -131,12 +181,13 @@
 
             document.querySelectorAll('.base-price').forEach(el => {
                 const base = parseInt(el.getAttribute('data-base'));
-                // สุ่มราคาเปลี่ยนเล็กน้อย -2 ถึง +5 มรกต เพื่อไม่ให้ราคาเพี้ยนมาก
+                // สุ่มราคาเปลี่ยน -2 ถึง +5 มรกต
                 const change = Math.floor(Math.random() * 8) - 2; 
                 let newPrice = base + change;
                 if (newPrice < 1) newPrice = 1; // ราคาห้ามต่ำกว่า 1
 
                 let trendHtml = '';
+                // สลับสีตรงนี้เลย ขึ้น=เขียว ลง=แดง
                 if (change > 0) trendHtml = `<span class="trend-up">▲ +${change}</span>`;
                 else if (change < 0) trendHtml = `<span class="trend-down">▼ ${change}</span>`;
 
