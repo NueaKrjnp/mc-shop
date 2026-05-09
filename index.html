@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>KRJNP WORLD - Official Guide</title>
+    <title>KRJNP WORLD - Market Live</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
         body { font-family: 'Kanit', sans-serif; background: #0f172a; color: #f1f5f9; padding: 0; margin: 0; }
@@ -22,8 +22,14 @@
         table { width: 100%; border-collapse: collapse; }
         th, td { border-bottom: 1px solid #334155; padding: 12px; text-align: left; }
         th { background: #0f172a; color: #2ecc71; }
-        .price { color: #f1c40f; font-weight: bold; text-align: right; }
-        .trade-item { color: #3498db; font-weight: bold; }
+        
+        /* สไตล์ราคาขึ้นลง */
+        .price-container { text-align: right; }
+        .base-price { color: #f1c40f; font-weight: bold; font-size: 1.1rem; }
+        .trend-up { color: #ff4757; font-size: 0.8rem; margin-left: 5px; }
+        .trend-down { color: #2ed573; font-size: 0.8rem; margin-left: 5px; }
+        
+        .market-status { background: #1e293b; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #2ecc71; }
     </style>
 </head>
 <body>
@@ -37,84 +43,72 @@
     </div>
 
     <div class="container">
-        
-        <!-- หน้า 1: รายการราคามรกต -->
         <div id="price-page" class="page active">
-            <h1 style="text-align:center; color:#2ecc71; margin-bottom:30px;">💰 รายการราคามรกต</h1>
-            
+            <div class="market-status">
+                <span id="market-time">📊 สถานะตลาด: กำลังอัปเดตราคา...</span>
+            </div>
+
             <div class="category-box">
                 <div class="category-header">🛡️ ชุดเกราะ (Armor Sets)</div>
                 <table>
-                    <tr><th>ชุดเกราะ (ครบเซ็ต)</th><th class="price">ราคา (Emerald)</th></tr>
-                    <tr><td>Leather Armor</td><td class="price">5</td></tr>
-                    <tr><td>Iron Armor</td><td class="price">20</td></tr>
-                    <tr><td>Diamond Armor</td><td class="price">128</td></tr>
-                    <tr><td>Netherite Armor</td><td class="price">512</td></tr>
+                    <tr><th>ชุดเกราะ</th><th style="text-align:right;">ราคาปัจจุบัน (Emerald)</th></tr>
+                    <tr><td>Leather Armor</td><td class="price-container"><span class="base-price" data-base="5">5</span></td></tr>
+                    <tr><td>Iron Armor</td><td class="price-container"><span class="base-price" data-base="20">20</span></td></tr>
+                    <tr><td>Diamond Armor</td><td class="price-container"><span class="base-price" data-base="128">128</span></td></tr>
+                    <tr><td>Netherite Armor</td><td class="price-container"><span class="base-price" data-base="512">512</span></td></tr>
                 </table>
             </div>
 
             <div class="category-box">
-                <div class="category-header">✨ สมุดเอนชานต์ (Enchanted Books)</div>
+                <div class="category-header">⚔️ อาวุธและเครื่องมือ</div>
                 <table>
-                    <tr><th>ชื่อเอนชานต์</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>
-                    <tr><td>Sharpness (ความคม)</td><td>5</td><td>12</td><td>24</td><td>36</td><td>64</td></tr>
-                    <tr><td>Efficiency (ขุดไว)</td><td>5</td><td>12</td><td>24</td><td>36</td><td>64</td></tr>
-                    <tr><td>Protection (ป้องกัน)</td><td>8</td><td>16</td><td>32</td><td>48</td><td>-</td></tr>
-                    <tr><td>Unbreaking (ทนทาน)</td><td>10</td><td>20</td><td>32</td><td>-</td><td>-</td></tr>
-                    <tr><td>Fortune / Looting</td><td>15</td><td>30</td><td>48</td><td>-</td><td>-</td></tr>
-                    <tr><td>Mending (ซ่อมแซม)</td><td colspan="5" style="text-align:center;" class="price">64 Emerald (Fix)</td></tr>
-                    <tr><td>Silk Touch (สัมผัสนุ่ม)</td><td colspan="5" style="text-align:center;" class="price">32 Emerald (Fix)</td></tr>
-                </table>
-            </div>
-
-            <!-- ส่วนที่ปรับใหม่ให้ดูง่ายขึ้น -->
-            <div class="category-box">
-                <div class="category-header">⚔️ อาวุธและเครื่องมือ (Tools & Weapons)</div>
-                <table>
-                    <tr><th>ประเภทไอเทม</th><th>ระดับเพชร (Diamond)</th><th class="price">ระดับเนเธอไรต์ (Netherite)</th></tr>
-                    <tr><td>Sword (ดาบ)</td><td>32</td><td class="price">150</td></tr>
-                    <tr><td>Pickaxe (พิกแอก)</td><td>40</td><td class="price">160</td></tr>
-                    <tr><td>Axe (ขวาน)</td><td>24</td><td class="price">140</td></tr>
-                    <tr><td>Shovel (พลั่ว)</td><td>15</td><td class="price">120</td></tr>
-                    <tr><td>Hoe (จอบ)</td><td>10</td><td class="price">100</td></tr>
-                    <tr><td>Bow / Crossbow</td><td>10</td><td class="price">-</td></tr>
-                    <tr><td>Trident (สามง่าม)</td><td>192</td><td class="price">-</td></tr>
-                </table>
-            </div>
-
-            <div class="category-box">
-                <div class="category-header">📦 บล็อกทั่วไป</div>
-                <table>
-                    <tr><td>Stone / Dirt / Sand (128 ชิ้น)</td><td class="price">1</td></tr>
-                    <tr><td>Wood Log (32 ชิ้น)</td><td class="price">1</td></tr>
-                    <tr><td>Diamond (1 เม็ด)</td><td class="price">15</td></tr>
+                    <tr><th>ไอเทม</th><th>ระดับเพชร</th><th style="text-align:right;">ระดับเนเธอไรต์</th></tr>
+                    <tr><td>Sword</td><td><span class="base-price" data-base="32">32</span></td><td class="price-container"><span class="base-price" data-base="150">150</span></td></tr>
+                    <tr><td>Pickaxe</td><td><span class="base-price" data-base="40">40</span></td><td class="price-container"><span class="base-price" data-base="160">160</span></td></tr>
+                    <tr><td>Netherite Upgrade</td><td>-</td><td class="price-container"><span class="base-price" data-base="128">128</span></td></tr>
                 </table>
             </div>
         </div>
 
-        <!-- หน้า 2: ห้อง TRADE (Fair Exchange) -->
         <div id="trade-page" class="page">
-            <h1 style="text-align:center; color:#3498db; margin-bottom:30px;">🤝 ห้อง TRADE (Fair Exchange)</h1>
+            <h1 style="text-align:center; color:#3498db;">🤝 ห้อง TRADE</h1>
             <div class="category-box" style="border-color: #3498db;">
-                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกของที่เท่าเทียม</div>
+                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกของ</div>
                 <table>
-                    <tr><th>ของที่คุณนำมา (Give)</th><th>➡️</th><th>ของที่ได้รับ (Get)</th></tr>
-                    <tr><td class="trade-item">Diamond 1 เม็ด</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
-                    <tr><td class="trade-item">Gold Ingot 8 แท่ง</td><td>➡️</td><td>Diamond 1 เม็ด</td></tr>
-                    <tr><td class="trade-item">Emerald 64 เม็ด</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
-                    <tr><td class="trade-item">Totem of Undying 1 อัน</td><td>➡️</td><td>Emerald 128 เม็ด</td></tr>
+                    <tr><td>Diamond 1 เม็ด</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
+                    <tr><td>Emerald 64 เม็ด</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
                 </table>
             </div>
         </div>
-
     </div>
 
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0,0);
         }
+
+        // ระบบสุ่มราคาขึ้นลง
+        function updateMarket() {
+            const now = new Date();
+            document.getElementById('market-time').innerText = "📊 ราคาตลาดประจำวันที่ " + now.toLocaleDateString('th-TH');
+
+            document.querySelectorAll('.base-price').forEach(el => {
+                const base = parseInt(el.getAttribute('data-base'));
+                // สุ่มราคาเปลี่ยน -5% ถึง +10%
+                const changePercent = (Math.random() * 15 - 5) / 100; 
+                const newPrice = Math.round(base * (1 + changePercent));
+                const diff = newPrice - base;
+
+                let trendHtml = '';
+                if (diff > 0) trendHtml = `<span class="trend-up">▲ +${diff}</span>`;
+                else if (diff < 0) trendHtml = `<span class="trend-down">▼ ${diff}</span>`;
+
+                el.innerHTML = newPrice + trendHtml;
+            });
+        }
+
+        window.onload = updateMarket;
     </script>
 </body>
 </html>
