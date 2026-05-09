@@ -24,6 +24,7 @@
         th { background: #0f172a; color: #2ecc71; }
         .price { color: #f1c40f; font-weight: bold; text-align: right; }
         .trade-item { color: #3498db; font-weight: bold; }
+        .trade-equal { color: #e74c3c; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -38,11 +39,10 @@
 
     <div class="container">
         
-        <!-- หน้า 1: รายการราคามรกต (ข้อมูลครบถ้วน) -->
+        <!-- หน้า 1: รายการราคามรกต (คงเดิมเป๊ะ 100%) -->
         <div id="price-page" class="page active">
             <h1 style="text-align:center; color:#2ecc71; margin-bottom:30px;">💰 รายการราคามรกต</h1>
             
-            <!-- ชุดเกราะ -->
             <div class="category-box">
                 <div class="category-header">🛡️ ชุดเกราะ (Armor Sets)</div>
                 <table>
@@ -56,7 +56,6 @@
                 </table>
             </div>
 
-            <!-- อาวุธและเครื่องมือ -->
             <div class="category-box">
                 <div class="category-header">⚔️ อาวุธและเครื่องมือ (Tools & Weapons)</div>
                 <table>
@@ -71,21 +70,18 @@
                 </table>
             </div>
 
-            <!-- สมุดเอนชานต์ -->
             <div class="category-box">
                 <div class="category-header">✨ สมุดเอนชานต์ (Enchanted Books)</div>
                 <table>
                     <tr><th>ชื่อเอนชานต์</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>
-                    <tr><td>Sharpness (ความคม)</td><td>5</td><td>12</td><td>24</td><td>36</td><td>64</td></tr>
-                    <tr><td>Efficiency (ขุดไว)</td><td>5</td><td>12</td><td>24</td><td>36</td><td>64</td></tr>
-                    <tr><td>Protection (ป้องกัน)</td><td>8</td><td>16</td><td>32</td><td>48</td><td>-</td></tr>
-                    <tr><td>Unbreaking (ไม่พัง)</td><td>10</td><td>20</td><td>32</td><td>-</td><td>-</td></tr>
+                    <tr><td>Sharpness / Efficiency</td><td>5</td><td>12</td><td>24</td><td>36</td><td>64</td></tr>
+                    <tr><td>Protection</td><td>8</td><td>16</td><td>32</td><td>48</td><td>-</td></tr>
+                    <tr><td>Unbreaking</td><td>10</td><td>20</td><td>32</td><td>-</td><td>-</td></tr>
                     <tr><td>Mending (ซ่อมแซม)</td><td colspan="5" style="text-align:center;" class="price">64 Emerald (Fix)</td></tr>
                     <tr><td>Silk Touch (สัมผัสนุ่ม)</td><td colspan="5" style="text-align:center;" class="price">32 Emerald (Fix)</td></tr>
                 </table>
             </div>
 
-            <!-- บล็อกทั่วไป -->
             <div class="category-box">
                 <div class="category-header">📦 บล็อกและไอเทมทั่วไป</div>
                 <table>
@@ -99,19 +95,22 @@
             </div>
         </div>
 
-        <!-- หน้า 2: ห้อง TRADE (แลกของ) -->
+        <!-- หน้า 2: ห้อง TRADE (ปรับเรทให้เท่าเทียมขึ้น) -->
         <div id="trade-page" class="page">
-            <h1 style="text-align:center; color:#3498db; margin-bottom:30px;">🤝 KRJNP TRADE CENTER</h1>
+            <h1 style="text-align:center; color:#3498db; margin-bottom:30px;">🤝 ห้อง TRADE (Fair Exchange)</h1>
             <div class="category-box" style="border-color: #3498db;">
-                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกเปลี่ยนสิ่งของ</div>
+                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางแลกของที่เท่าเทียมกับราคามรกต</div>
                 <table>
                     <tr><th>ของที่คุณนำมา (Give)</th><th>➡️</th><th>ของที่ได้รับ (Get)</th></tr>
-                    <tr><td class="trade-item">Diamond 5 เม็ด</td><td>➡️</td><td>Emerald 10 เม็ด</td></tr>
-                    <tr><td class="trade-item">Gold Ingot 10 แท่ง</td><td>➡️</td><td>Emerald 5 เม็ด</td></tr>
-                    <tr><td class="trade-item">Netherite Scrap 1 ชิ้น</td><td>➡️</td><td>Emerald 64 เม็ด</td></tr>
-                    <tr><td class="trade-item">Golden Apple 1 ลูก</td><td>➡️</td><td>Totem 1 อัน</td></tr>
+                    <tr><td class="trade-item">Diamond 1 เม็ด (ค่า 15 Em)</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
+                    <tr><td class="trade-item">Gold Ingot 8 แท่ง</td><td>➡️</td><td>Diamond 1 เม็ด</td></tr>
+                    <tr><td class="trade-item">Netherite Ingot 1 แท่ง</td><td>➡️</td><td>Diamond 18 เม็ด</td></tr>
+                    <tr><td class="trade-item">Emerald 64 เม็ด (1 Stack)</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
+                    <tr><td class="trade-item">Totem of Undying 1 อัน</td><td>➡️</td><td>Emerald 128 เม็ด</td></tr>
+                    <tr><td class="trade-item">Enchanted Golden Apple 1 ลูก</td><td>➡️</td><td>Netherite Ingot 1 แท่ง</td></tr>
                 </table>
             </div>
+            <p style="text-align:center; color:#64748b;">*เรทนี้คำนวณจากมูลค่ามรกตเพื่อให้เกิดความเท่าเทียมในการแลกเปลี่ยนครับ*</p>
         </div>
 
     </div>
