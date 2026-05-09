@@ -7,8 +7,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
         body { font-family: 'Kanit', sans-serif; background: #0f172a; color: #f1f5f9; padding: 0; margin: 0; }
         
-        .navbar { background: #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #2ecc71; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #2ecc71; }
+        .navbar { background: #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #2ecc71; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #2ecc71; text-shadow: 2px 2px #000; }
         .nav-menu button { background: #2ecc71; color: black; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.3s; font-family: 'Kanit', sans-serif; }
         .nav-menu button:hover { background: #27ae60; transform: translateY(-2px); }
         
@@ -17,19 +17,17 @@
         .active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        .market-status { background: #1e293b; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 25px; border: 1px solid #2ecc71; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
         .category-box { background: #1e293b; margin-bottom: 30px; border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
         .category-header { background: #2ecc71; color: black; padding: 15px; font-weight: bold; font-size: 1.2rem; text-align: center; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border-bottom: 1px solid #334155; padding: 12px; text-align: left; }
         th { background: #0f172a; color: #2ecc71; }
         
-        /* สไตล์ราคาขึ้นลง */
-        .price-container { text-align: right; }
         .base-price { color: #f1c40f; font-weight: bold; font-size: 1.1rem; }
-        .trend-up { color: #ff4757; font-size: 0.8rem; margin-left: 5px; }
-        .trend-down { color: #2ed573; font-size: 0.8rem; margin-left: 5px; }
-        
-        .market-status { background: #1e293b; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #2ecc71; }
+        .trend-up { color: #ff4757; font-size: 0.8rem; margin-left: 5px; font-weight: normal; }
+        .trend-down { color: #2ed573; font-size: 0.8rem; margin-left: 5px; font-weight: normal; }
+        .trade-item { color: #3498db; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -43,66 +41,104 @@
     </div>
 
     <div class="container">
+        
+        <!-- หน้า 1: รายการราคามรกต (ข้อมูลเดิมเป๊ะ + ระบบราคาขึ้นลง) -->
         <div id="price-page" class="page active">
             <div class="market-status">
-                <span id="market-time">📊 สถานะตลาด: กำลังอัปเดตราคา...</span>
+                <span id="market-time">📊 กำลังตรวจสอบราคาตลาดปัจจุบัน...</span>
             </div>
-
+            
             <div class="category-box">
                 <div class="category-header">🛡️ ชุดเกราะ (Armor Sets)</div>
                 <table>
                     <tr><th>ชุดเกราะ</th><th style="text-align:right;">ราคาปัจจุบัน (Emerald)</th></tr>
-                    <tr><td>Leather Armor</td><td class="price-container"><span class="base-price" data-base="5">5</span></td></tr>
-                    <tr><td>Iron Armor</td><td class="price-container"><span class="base-price" data-base="20">20</span></td></tr>
-                    <tr><td>Diamond Armor</td><td class="price-container"><span class="base-price" data-base="128">128</span></td></tr>
-                    <tr><td>Netherite Armor</td><td class="price-container"><span class="base-price" data-base="512">512</span></td></tr>
+                    <tr><td>Leather Armor</td><td style="text-align:right;"><span class="base-price" data-base="5">5</span></td></tr>
+                    <tr><td>Iron Armor</td><td style="text-align:right;"><span class="base-price" data-base="20">20</span></td></tr>
+                    <tr><td>Diamond Armor</td><td style="text-align:right;"><span class="base-price" data-base="128">128</span></td></tr>
+                    <tr><td>Netherite Armor</td><td style="text-align:right;"><span class="base-price" data-base="512">512</span></td></tr>
                 </table>
             </div>
 
             <div class="category-box">
-                <div class="category-header">⚔️ อาวุธและเครื่องมือ</div>
+                <div class="category-header">✨ สมุดเอนชานต์ (Enchanted Books)</div>
                 <table>
-                    <tr><th>ไอเทม</th><th>ระดับเพชร</th><th style="text-align:right;">ระดับเนเธอไรต์</th></tr>
-                    <tr><td>Sword</td><td><span class="base-price" data-base="32">32</span></td><td class="price-container"><span class="base-price" data-base="150">150</span></td></tr>
-                    <tr><td>Pickaxe</td><td><span class="base-price" data-base="40">40</span></td><td class="price-container"><span class="base-price" data-base="160">160</span></td></tr>
-                    <tr><td>Netherite Upgrade</td><td>-</td><td class="price-container"><span class="base-price" data-base="128">128</span></td></tr>
+                    <tr><th>ชื่อเอนชานต์</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>
+                    <tr><td>Sharpness / Efficiency</td>
+                        <td><span class="base-price" data-base="5">5</span></td>
+                        <td><span class="base-price" data-base="12">12</span></td>
+                        <td><span class="base-price" data-base="24">24</span></td>
+                        <td><span class="base-price" data-base="36">36</span></td>
+                        <td><span class="base-price" data-base="64">64</span></td>
+                    </tr>
+                    <tr><td>Protection</td>
+                        <td><span class="base-price" data-base="8">8</span></td>
+                        <td><span class="base-price" data-base="16">16</span></td>
+                        <td><span class="base-price" data-base="32">32</span></td>
+                        <td><span class="base-price" data-base="48">48</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr><td>Mending / Silk Touch</td><td colspan="5" style="text-align:center;"><span class="base-price" data-base="64">64</span> / <span class="base-price" data-base="32">32</span></td></tr>
+                </table>
+            </div>
+
+            <div class="category-box">
+                <div class="category-header">⚔️ อาวุธและเครื่องมือ (Tools & Weapons)</div>
+                <table>
+                    <tr><th>ประเภทไอเทม</th><th>ระดับเพชร</th><th style="text-align:right;">ระดับเนเธอไรต์</th></tr>
+                    <tr><td>Sword (ดาบ)</td><td><span class="base-price" data-base="32">32</span></td><td style="text-align:right;"><span class="base-price" data-base="150">150</span></td></tr>
+                    <tr><td>Pickaxe (พิกแอก)</td><td><span class="base-price" data-base="40">40</span></td><td style="text-align:right;"><span class="base-price" data-base="160">160</span></td></tr>
+                    <tr><td>Axe (ขวาน)</td><td><span class="base-price" data-base="24">24</span></td><td style="text-align:right;"><span class="base-price" data-base="140">140</span></td></tr>
+                    <tr><td>Netherite Upgrade</td><td>-</td><td style="text-align:right;"><span class="base-price" data-base="128">128</span></td></tr>
+                </table>
+            </div>
+
+            <div class="category-box">
+                <div class="category-header">📦 บล็อกทั่วไป</div>
+                <table>
+                    <tr><td>Stone / Dirt (128 ชิ้น)</td><td style="text-align:right;"><span class="base-price" data-base="1">1</span></td></tr>
+                    <tr><td>Diamond (1 เม็ด)</td><td style="text-align:right;"><span class="base-price" data-base="15">15</span></td></tr>
                 </table>
             </div>
         </div>
 
+        <!-- หน้า 2: ห้อง TRADE -->
         <div id="trade-page" class="page">
-            <h1 style="text-align:center; color:#3498db;">🤝 ห้อง TRADE</h1>
+            <h1 style="text-align:center; color:#3498db; margin-bottom:30px;">🤝 ห้อง TRADE (Fair Exchange)</h1>
             <div class="category-box" style="border-color: #3498db;">
-                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกของ</div>
+                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกของที่เท่าเทียม</div>
                 <table>
-                    <tr><td>Diamond 1 เม็ด</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
-                    <tr><td>Emerald 64 เม็ด</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
+                    <tr><th>ของที่คุณนำมา (Give)</th><th>➡️</th><th>ของที่ได้รับ (Get)</th></tr>
+                    <tr><td class="trade-item">Diamond 1 เม็ด</td><td>➡️</td><td>Iron Ingot 30 แท่ง</td></tr>
+                    <tr><td class="trade-item">Gold Ingot 8 แท่ง</td><td>➡️</td><td>Diamond 1 เม็ด</td></tr>
+                    <tr><td class="trade-item">Emerald 64 เม็ด</td><td>➡️</td><td>Diamond 4 เม็ด</td></tr>
+                    <tr><td class="trade-item">Totem of Undying 1 อัน</td><td>➡️</td><td>Emerald 128 เม็ด</td></tr>
                 </table>
             </div>
         </div>
+
     </div>
 
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
         }
 
-        // ระบบสุ่มราคาขึ้นลง
         function updateMarket() {
             const now = new Date();
             document.getElementById('market-time').innerText = "📊 ราคาตลาดประจำวันที่ " + now.toLocaleDateString('th-TH');
 
             document.querySelectorAll('.base-price').forEach(el => {
                 const base = parseInt(el.getAttribute('data-base'));
-                // สุ่มราคาเปลี่ยน -5% ถึง +10%
-                const changePercent = (Math.random() * 15 - 5) / 100; 
-                const newPrice = Math.round(base * (1 + changePercent));
-                const diff = newPrice - base;
+                // สุ่มราคาเปลี่ยนเล็กน้อย -2 ถึง +5 มรกต เพื่อไม่ให้ราคาเพี้ยนมาก
+                const change = Math.floor(Math.random() * 8) - 2; 
+                let newPrice = base + change;
+                if (newPrice < 1) newPrice = 1; // ราคาห้ามต่ำกว่า 1
 
                 let trendHtml = '';
-                if (diff > 0) trendHtml = `<span class="trend-up">▲ +${diff}</span>`;
-                else if (diff < 0) trendHtml = `<span class="trend-down">▼ ${diff}</span>`;
+                if (change > 0) trendHtml = `<span class="trend-up">▲ +${change}</span>`;
+                else if (change < 0) trendHtml = `<span class="trend-down">▼ ${change}</span>`;
 
                 el.innerHTML = newPrice + trendHtml;
             });
