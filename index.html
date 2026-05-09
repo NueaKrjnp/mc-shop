@@ -2,35 +2,28 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>KRJNP WORLD - All-in-One Guide</title>
+    <title>KRJNP WORLD - Official Guide</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
         body { font-family: 'Kanit', sans-serif; background: #0f172a; color: #f1f5f9; padding: 0; margin: 0; }
         
-        /* แถบเมนู */
-        .navbar { background: #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #2ecc71; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #2ecc71; text-shadow: 2px 2px #000; }
+        .navbar { background: #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #2ecc71; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #2ecc71; }
         .nav-menu button { background: #2ecc71; color: black; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.3s; font-family: 'Kanit', sans-serif; }
-        .nav-menu button:hover { background: #27ae60; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3); }
+        .nav-menu button:hover { background: #27ae60; transform: translateY(-2px); }
         
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         .page { display: none; animation: fadeIn 0.5s; }
         .active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* ตารางราคา */
-        .category-box { background: #1e293b; margin-bottom: 30px; border-radius: 12px; overflow: hidden; border: 1px solid #334155; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        .category-box { background: #1e293b; margin-bottom: 30px; border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
         .category-header { background: #2ecc71; color: black; padding: 15px; font-weight: bold; font-size: 1.2rem; text-align: center; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border-bottom: 1px solid #334155; padding: 12px; text-align: left; }
         th { background: #0f172a; color: #2ecc71; }
         .price { color: #f1c40f; font-weight: bold; text-align: right; }
-
-        /* การ์ดเทดของ */
-        .test-card { background: #1e293b; margin-bottom: 20px; border-radius: 15px; border-left: 6px solid #3498db; padding: 25px; transition: 0.3s; }
-        .test-card:hover { transform: scale(1.02); background: #253347; }
-        .item-name { color: #f1c40f; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; display: block; }
-        .badge { background: #3498db; color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: bold; }
+        .trade-item { color: #3498db; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -38,74 +31,64 @@
     <div class="navbar">
         <div class="logo">💎 KRJNP WORLD</div>
         <div class="nav-menu">
-            <button onclick="showPage('price-page')">💰 ดูราคาของ</button>
-            <button onclick="showPage('test-page')">🧪 ห้องเทดของ</button>
+            <button onclick="showPage('price-page')">💰 รายการราคามรกต</button>
+            <button onclick="showPage('trade-page')">🤝 ห้อง TRADE</button>
         </div>
     </div>
 
     <div class="container">
         
-        <!-- หน้า 1: ราคาของ (จัดเต็ม) -->
+        <!-- หน้า 1: ราคามรกต (ข้อมูลเดิม) -->
         <div id="price-page" class="page active">
             <h1 style="text-align:center; color:#2ecc71; margin-bottom:30px;">💰 รายการราคามรกต</h1>
             
             <div class="category-box">
                 <div class="category-header">🛡️ ชุดเกราะ (Armor Sets)</div>
                 <table>
-                    <tr><th>ชุดเกราะ (ครบเซ็ต)</th><th class="price">ราคา</th></tr>
-                    <tr><td>Leather Armor (หนัง)</td><td class="price">5</td></tr>
-                    <tr><td>Chainmail Armor (โซ่)</td><td class="price">12</td></tr>
-                    <tr><td>Iron Armor (เหล็ก)</td><td class="price">20</td></tr>
-                    <tr><td>Gold Armor (ทอง)</td><td class="price">15</td></tr>
-                    <tr><td>Diamond Armor (เพชร)</td><td class="price">128</td></tr>
-                    <tr><td>Netherite Armor (เนเธอไรต์)</td><td class="price">512</td></tr>
+                    <tr><th>ชุดเกราะ (ครบเซ็ต)</th><th class="price">ราคา (Emerald)</th></tr>
+                    <tr><td>Leather Armor</td><td class="price">5</td></tr>
+                    <tr><td>Iron Armor</td><td class="price">20</td></tr>
+                    <tr><td>Diamond Armor</td><td class="price">128</td></tr>
+                    <tr><td>Netherite Armor</td><td class="price">512</td></tr>
                 </table>
             </div>
 
             <div class="category-box">
-                <div class="category-header">⚔️ อาวุธและเครื่องมือ</div>
+                <div class="category-header">✨ สมุดเอนชานต์ (Enchanted Books)</div>
                 <table>
-                    <tr><th>ไอเทม</th><th class="price">เพชร / เนเธอไรต์</th></tr>
-                    <tr><td>Sword (ดาบ)</td><td class="price">32 / 150</td></tr>
-                    <tr><td>Pickaxe (ที่ขุด)</td><td class="price">40 / 160</td></tr>
-                    <tr><td>Axe (ขวาน)</td><td class="price">24 / 140</td></tr>
+                    <tr><th>ชื่อเอนชานต์</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>
+                    <tr><td>Sharpness / Efficiency</td><td>5</td><td>12</td><td>24</td><td>36</td><td>64</td></tr>
+                    <tr><td>Mending</td><td colspan="5" style="text-align:center;" class="price">64 Emerald</td></tr>
                 </table>
             </div>
 
             <div class="category-box">
-                <div class="category-header">✨ สมุดเอนชานต์ (Books)</div>
+                <div class="category-header">📦 บล็อกและไอเทมทั่วไป</div>
                 <table>
-                    <tr><th>ชื่อเอนชานต์</th><th>Lv.1-3</th><th>Lv.4-5</th></tr>
-                    <tr><td>Sharpness (ความคม)</td><td>10-24</td><td>36-64</td></tr>
-                    <tr><td>Efficiency (ขุดไว)</td><td>10-24</td><td>36-64</td></tr>
-                    <tr><td>Mending (ซ่อมแซม)</td><td colspan="2" class="price" style="text-align:center;">64 Fix Price</td></tr>
+                    <tr><th>ไอเทม</th><th>จำนวน</th><th class="price">ราคา (Emerald)</th></tr>
+                    <tr><td>Stone / Dirt / Sand</td><td>128 ชิ้น</td><td class="price">1</td></tr>
+                    <tr><td>Iron Ingot</td><td>2 ชิ้น</td><td class="price">1</td></tr>
+                    <tr><td>Diamond</td><td>1 เม็ด</td><td class="price">15</td></tr>
                 </table>
             </div>
         </div>
 
-        <!-- หน้า 2: ห้องเทดของ -->
-        <div id="test-page" class="page">
-            <h1 style="text-align:center; color:#3498db; margin-bottom:30px;">🧪 KRJNP เทดของ Lab</h1>
+        <!-- หน้า 2: ห้อง TRADE (แลกของต่อของ) -->
+        <div id="trade-page" class="page">
+            <h1 style="text-align:center; color:#3498db; margin-bottom:30px;">🤝 ระบบแลกเปลี่ยนของ (Trade System)</h1>
             
-            <div class="test-card">
-                <span class="item-name">🛡️ เทดชุดเกราะ + Protection IV</span>
-                <p>ผลการเทด: <span class="badge">Success</span> ป้องกันการโจมตีได้ดีที่สุดในทุกสถานการณ์</p>
+            <div class="category-box" style="border-color: #3498db;">
+                <div class="category-header" style="background: #3498db; color: white;">🔄 ตารางการแลกของ (Item to Item)</div>
+                <table>
+                    <tr><th>ของที่คุณนำมา (Give)</th><th>➡️</th><th>ของที่ได้รับ (Get)</th></tr>
+                    <tr><td class="trade-item">Diamond (เพชร) 5 เม็ด</td><td>➡️</td><td>Emerald (มรกต) 10 เม็ด</td></tr>
+                    <tr><td class="trade-item">Gold Ingot (ทอง) 10 แท่ง</td><td>➡️</td><td>Emerald (มรกต) 5 เม็ด</td></tr>
+                    <tr><td class="trade-item">Netherite Scrap 1 ชิ้น</td><td>➡️</td><td>Emerald (มรกต) 64 เม็ด</td></tr>
+                    <tr><td class="trade-item">Iron Ingot 32 แท่ง</td><td>➡️</td><td>Diamond (เพชร) 1 เม็ด</td></tr>
+                    <tr><td class="trade-item">Golden Apple 1 ลูก</td><td>➡️</td><td>Totem of Undying 1 อัน</td></tr>
+                </table>
             </div>
-
-            <div class="test-card" style="border-left-color: #9b59b6;">
-                <span class="item-name">⚔️ เทดดาบ + Fire Aspect II</span>
-                <p>ผลการเทด: <span class="badge" style="background:#9b59b6;">Success</span> ศัตรูติดไฟเมื่อโดนโจมตี และได้เนื้อย่างทันที</p>
-            </div>
-
-            <div class="test-card" style="border-left-color: #e67e22;">
-                <span class="item-name">⛏️ เทดที่ขุด + Silk Touch</span>
-                <p>ผลการเทด: <span class="badge" style="background:#e67e22;">Success</span> ขุดบล็อกกระจกหรือแร่ให้ออกมาเป็นก้อน</p>
-            </div>
-
-            <div class="test-card" style="border-left-color: #2ecc71;">
-                <span class="item-name">🔱 เทดสามง่าม + Riptide III</span>
-                <p>ผลการเทด: <span class="badge" style="background:#2ecc71;">Success</span> พุ่งตัวไปในอากาศได้รวดเร็วเมื่อฝนตก</p>
-            </div>
+            <p style="text-align:center; color:#64748b;">*ต้องการแลกอะไรเพิ่มเติม ติดต่อแอดมินในเซิร์ฟเวอร์ได้เลยครับ*</p>
         </div>
 
     </div>
