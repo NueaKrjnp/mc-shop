@@ -2,30 +2,71 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>Aegis Battle Shop - ราคามรกต</title>
+    <title>Aegis Battle Shop - ราคามรกตแบบละเอียด</title>
     <style>
-        body { font-family: sans-serif; background: #121212; color: white; padding: 20px; text-align: center; }
-        .shop-table { width: 100%; max-width: 600px; margin: auto; border-collapse: collapse; background: #1e1e1e; }
-        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
-        th { background: #2ecc71; color: black; }
+        body { font-family: 'Kanit', sans-serif; background: #121212; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 800px; margin: auto; }
+        .category-box { background: #1e1e1e; margin-bottom: 30px; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .category-header { background: #2ecc71; color: black; padding: 10px; font-weight: bold; font-size: 1.2rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border-bottom: 1px solid #333; padding: 12px; text-align: left; }
+        th { background: #252525; color: #2ecc71; }
         .price { color: #f1c40f; font-weight: bold; }
-        h1 { color: #2ecc71; }
+        h1 { color: #2ecc71; text-shadow: 2px 2px #000; }
     </style>
 </head>
 <body>
-    <h1>💎 Aegis Battle Shop Price List</h1>
-    <table class="shop-table">
-        <tr><th>ไอเทม</th><th>จำนวน</th><th>ราคา (Emerald)</th></tr>
-        <tr><td>Stone / Dirt / Sand</td><td>128 ชิ้น</td><td class="price">1</td></tr>
-        <tr><td>Wood Log (ทุกชนิด)</td><td>32 ชิ้น</td><td class="price">1</td></tr>
-        <tr><td>Iron Ingot</td><td>2 ชิ้น</td><td class="price">1</td></tr>
-        <tr><td>Gold Ingot</td><td>1 ชิ้น</td><td class="price">2</td></tr>
-        <tr><td>Diamond</td><td>1 เม็ด</td><td class="price">15</td></tr>
-        <tr><td>Ender Pearl</td><td>2 ลูก</td><td class="price">2</td></tr>
-        <tr><td>Totem of Undying</td><td>1 อัน</td><td class="price">64</td></tr>
-        <tr><td>Elytra</td><td>1 อัน</td><td class="price">192</td></tr>
-        <tr><td>Netherite Ingot</td><td>1 แท่ง</td><td class="price">256</td></tr>
-        <tr><td>Enchanted Apple</td><td>1 ลูก</td><td class="price">256</td></tr>
-    </table>
+    <div class="container">
+        <h1>💎 Aegis Battle Official Price List</h1>
+        <p>รายการราคามรกต (Emerald) สำหรับทุกไอเทมในเกม</p>
+
+        <!-- หมวดชุดเกราะ -->
+        <div class="category-box">
+            <div class="category-header">🛡️ ชุดเกราะ (Armor Sets)</div>
+            <table>
+                <tr><th>ไอเทม (ครบเซ็ต)</th><th>ราคา (Emerald)</th></tr>
+                <tr><td>ชุดเกราะเหล็ก (Iron Set)</td><td class="price">20</td></tr>
+                <tr><td>ชุดเกราะเพชร (Diamond Set)</td><td class="price">128 (2 Stack)</td></tr>
+                <tr><td>ชุดเกราะเนเธอไรต์ (Netherite Set)</td><td class="price">512 (8 Stack)</td></tr>
+            </table>
+        </div>
+
+        <!-- หมวดอาวุธและเครื่องมือ -->
+        <div class="category-box">
+            <div class="category-header">⚔️ อาวุธและเครื่องมือ (Tools & Weapons)</div>
+            <table>
+                <tr><th>ไอเทม</th><th>ราคาต่อชิ้น (Emerald)</th></tr>
+                <tr><td>ดาบเพชร (Diamond Sword)</td><td class="price">32</td></tr>
+                <tr><td>ที่ขุดเพชร (Diamond Pickaxe)</td><td class="price">40</td></tr>
+                <tr><td>พลั่ว/ขวานเพชร (Diamond Shovel/Axe)</td><td class="price">24</td></tr>
+                <tr><td>ที่ขุดเนเธอไรต์ (Netherite Pickaxe)</td><td class="price">150</td></tr>
+                <tr><td>ธนู (Bow) / หน้าไม้ (Crossbow)</td><td class="price">10</td></tr>
+            </table>
+        </div>
+
+        <!-- หมวดของเอนชานต์ -->
+        <div class="category-box">
+            <div class="category-header">✨ สมุดเอนชานต์ (Enchanted Books)</div>
+            <table>
+                <tr><th>ชื่อเอนชานต์</th><th>ราคาเริ่มต้น (Emerald)</th></tr>
+                <tr><td>Mending (ซ่อมแซม)</td><td class="price">64</td></tr>
+                <tr><td>Efficiency V (ขุดไว 5)</td><td class="price">48</td></tr>
+                <tr><td>Sharpness V (ดาบคม 5)</td><td class="price">48</td></tr>
+                <tr><td>Unbreaking III (ไม่พังง่าย 3)</td><td class="price">32</td></tr>
+                <tr><td>Fortune III (ขุดแล้วดรอปเยอะ 3)</td><td class="price">40</td></tr>
+            </table>
+        </div>
+
+        <!-- หมวดบล็อกพิเศษ -->
+        <div class="category-box">
+            <div class="category-header">📦 บล็อกและไอเทมอื่นๆ</div>
+            <table>
+                <tr><th>ไอเทม</th><th>จำนวน</th><th>ราคา (Emerald)</th></tr>
+                <tr><td>Shulker Box (กล่องเชลเกอร์)</td><td>1 กล่อง</td><td class="price">96</td></tr>
+                <tr><td>Beacon (บีคอน)</td><td>1 อัน</td><td class="price">512</td></tr>
+                <tr><td>Golden Apple</td><td>1 ลูก</td><td class="price">20</td></tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
