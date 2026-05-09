@@ -4,33 +4,24 @@
     <meta charset="UTF-8">
     <title>KRJNP WORLD - All-in-One Guide</title>
     <style>
-        body { font-family: 'Kanit', sans-serif; background: #0f172a; color: #f1f5f9; padding: 20px; margin: 0; }
+        body { font-family: 'Kanit', sans-serif; background: #0f172a; color: #f1f5f9; padding: 0; margin: 0; }
         .navbar { background: #1e293b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #2ecc71; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #2ecc71; }
         .nav-menu button { background: #2ecc71; color: black; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.3s; }
         .nav-menu button:hover { background: #27ae60; transform: scale(1.05); }
-        
-        .container { max-width: 900px; margin: 40px auto; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         .page { display: none; }
         .active { display: block; }
-
-        /* Style สำหรับตารางราคา */
         .category-box { background: #1e293b; margin-bottom: 25px; border-radius: 10px; overflow: hidden; border: 1px solid #334155; }
-        .category-header { background: #2ecc71; color: black; padding: 12px; font-weight: bold; font-size: 1.2rem; text-align: center; }
+        .category-header { background: #2ecc71; color: black; padding: 12px; font-weight: bold; text-align: center; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border-bottom: 1px solid #334155; padding: 12px; text-align: left; }
-        th { background: #1e293b; color: #2ecc71; }
         .price { color: #f1c40f; font-weight: bold; }
-
-        /* Style สำหรับแล็บเทสของ */
         .test-card { background: #1e293b; margin-bottom: 20px; border-radius: 15px; border-left: 5px solid #3498db; padding: 20px; }
-        .item-main { color: #f1c40f; font-size: 1.1rem; font-weight: bold; }
         .badge { background: #3498db; color: white; padding: 2px 8px; border-radius: 5px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-
-    <!-- แถบเมนูมุมขวาบน -->
     <div class="navbar">
         <div class="logo">💎 KRJNP WORLD</div>
         <div class="nav-menu">
@@ -38,57 +29,35 @@
             <button onclick="showPage('test-page')">🧪 ห้องเทสของ</button>
         </div>
     </div>
-
     <div class="container">
-        
-        <!-- หน้าที่ 1: ตารางราคา (เหมือนเดิม) -->
         <div id="price-page" class="page active">
             <h1 style="text-align:center; color:#2ecc71;">รายการราคามรกต</h1>
             <div class="category-box">
                 <div class="category-header">🛡️ ชุดเกราะ (Armor)</div>
                 <table>
                     <tr><th>ไอเทม</th><th class="price">ราคา (Emerald)</th></tr>
-                    <tr><td>ชุดเกราะเหล็ก (Iron Set)</td><td class="price">20</td></tr>
-                    <tr><td>ชุดเกราะเพชร (Diamond Set)</td><td class="price">128</td></tr>
-                    <tr><td>ชุดเกราะเนเธอไรต์ (Netherite Set)</td><td class="price">512</td></tr>
-                </table>
-            </div>
-            <div class="category-box">
-                <div class="category-header">✨ สมุดเอนชานต์ (Books)</div>
-                <table>
-                    <tr><th>ชื่อสมุด</th><th class="price">ราคา</th></tr>
-                    <tr><td>Mending (ซ่อมแซม)</td><td class="price">64</td></tr>
-                    <tr><td>Efficiency V (ขุดไว 5)</td><td class="price">64</td></tr>
+                    <tr><td>Leather Armor</td><td class="price">5</td></tr>
+                    <tr><td>Iron Armor</td><td class="price">20</td></tr>
+                    <tr><td>Diamond Armor</td><td class="price">128</td></tr>
+                    <tr><td>Netherite Armor</td><td class="price">512</td></tr>
                 </table>
             </div>
         </div>
-
-        <!-- หน้าที่ 2: ห้องเทสของ -->
         <div id="test-page" class="page">
             <h1 style="text-align:center; color:#3498db;">🧪 KRJNP Testing Lab</h1>
             <div class="test-card">
-                <div class="item-main">🛡️ ชุดเกราะ + Protection IV</div>
-                <p>ผลลัพธ์: <span class="badge">Success</span> เพิ่มพลังป้องกันสูงสุด</p>
-            </div>
-            <div class="test-card" style="border-left-color: #e67e22;">
-                <div class="item-main">⛏️ ที่ขุด + Silk Touch</div>
-                <p>ผลลัพธ์: <span class="badge" style="background:#e67e22;">Success</span> ขุดบล็อกออกมาเป็นก้อน</p>
+                <p><strong>🛡️ ชุดเกราะ + Protection IV</strong></p>
+                <p>ผลการทดสอบ: <span class="badge">ผ่าน</span> เพิ่มพลังป้องกันสูงสุด</p>
             </div>
             <div class="test-card" style="border-left-color: #9b59b6;">
-                <div class="item-main">⚔️ ดาบ + Fire Aspect</div>
-                <p>ผลลัพธ์: <span class="badge" style="background:#9b59b6;">Success</span> โจมตีแล้วศัตรูติดไฟ</p>
+                <p><strong>⚔️ ดาบ + Fire Aspect</strong></p>
+                <p>ผลการทดสอบ: <span class="badge" style="background:#9b59b6;">ผ่าน</span> โจมตีติดไฟ</p>
             </div>
         </div>
-
     </div>
-
     <script>
         function showPage(pageId) {
-            // ซ่อนทุกหน้าก่อน
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            // โชว์หน้าที่เลือก
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
         }
     </script>
